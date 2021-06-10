@@ -1,0 +1,311 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="RestauranteModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="InsertarDatos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdentificacionCliente" Type="int" Mode="In" />
+          <Parameter Name="NombresCliente" Type="varchar" Mode="In" />
+          <Parameter Name="ApellidosCliente" Type="varchar" Mode="In" />
+          <Parameter Name="DireccionCliente" Type="varchar" Mode="In" />
+          <Parameter Name="TelefonoCliente" Type="varchar" Mode="In" />
+          <Parameter Name="NroMesa" Type="int" Mode="In" />
+          <Parameter Name="NombreMesa" Type="varchar" Mode="In" />
+          <Parameter Name="ReservadaMesa" Type="bit" Mode="In" />
+          <Parameter Name="PuestosMesa" Type="varchar" Mode="In" />
+          <Parameter Name="IdMesero" Type="int" Mode="In" />
+          <Parameter Name="Plato" Type="varchar" Mode="In" />
+          <Parameter Name="ValorPlato" Type="decimal" Mode="In" />
+          <Parameter Name="IdSupervisor" Type="int" Mode="In" />
+          <Parameter Name="NombresSupervisor" Type="varchar" Mode="In" />
+          <Parameter Name="ApellidosSupervisor" Type="varchar" Mode="In" />
+          <Parameter Name="EdadSupervisor" Type="varchar" Mode="In" />
+          <Parameter Name="AntiguedadSupervisor" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="InsertarPruebaMesa" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Mesa" Type="varchar" Mode="In" />
+          <Parameter Name="Nombre" Type="varchar" Mode="In" />
+          <Parameter Name="Reservada" Type="bit" Mode="In" />
+          <Parameter Name="Puestos" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="VistaMeseros" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="VistaMeserosId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="VistaMeserosIdCambiar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdMesero" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="VistaMeserosIdCambiarV2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdMesero" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="VistaMeserosIdCambiarV3" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdMesero" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="RestauranteModelStoreContainer" />
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RestauranteModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="RestauranteEntities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="VistaMeseros" ReturnType="Collection(RestauranteModel.VistaMeseros_Result)" />
+          <FunctionImport Name="ListaMeseros" ReturnType="Collection(RestauranteModel.ListaMeseros_Result)" />
+          <FunctionImport Name="VistaMeserosId" ReturnType="Collection(RestauranteModel.VistaMeserosId_Result)" />
+          <FunctionImport Name="ListaMeserosId" ReturnType="Collection(RestauranteModel.ListaMeserosId_Result)" />
+          <FunctionImport Name="VistaMeserosIdCambiar" ReturnType="Collection(RestauranteModel.VistaMeserosIdCambiar_Result)">
+          <Parameter Name="IdMesero" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="EscogerMeseroxId" ReturnType="Collection(String)">
+          <Parameter Name="IdMesero" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="VistaMeserosIdCambiarV2" ReturnType="Collection(RestauranteModel.VistaMeserosIdCambiarV2_Result)">
+          <Parameter Name="IdMesero" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Escoger" ReturnType="Collection(RestauranteModel.Escoger_Result)">
+          <Parameter Name="IdMesero" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="VistaMeserosIdCambiarV3" ReturnType="Collection(RestauranteModel.VistaMeserosIdCambiarV3_Result)">
+          <Parameter Name="IdMesero" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="listaEscogeDatosMesero" ReturnType="Collection(RestauranteModel.listaEscogeDatosMesero_Result)">
+          <Parameter Name="IdMesero" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="InsertarPruebaMesa" ReturnType="Collection(String)">
+            <Parameter Name="Mesa" Mode="In" Type="String" />
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="Reservada" Mode="In" Type="Boolean" />
+            <Parameter Name="Puestos" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="InstertarPrueba" ReturnType="Collection(RestauranteModel.InstertarPrueba_Result)">
+            <Parameter Name="Mesa" Mode="In" Type="String" />
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="Reservada" Mode="In" Type="Boolean" />
+            <Parameter Name="Puestos" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="InsertarDatos" ReturnType="Collection(String)">
+            <Parameter Name="IdentificacionCliente" Mode="In" Type="Int32" />
+            <Parameter Name="NombresCliente" Mode="In" Type="String" />
+            <Parameter Name="ApellidosCliente" Mode="In" Type="String" />
+            <Parameter Name="DireccionCliente" Mode="In" Type="String" />
+            <Parameter Name="TelefonoCliente" Mode="In" Type="String" />
+            <Parameter Name="NroMesa" Mode="In" Type="Int32" />
+            <Parameter Name="NombreMesa" Mode="In" Type="String" />
+            <Parameter Name="ReservadaMesa" Mode="In" Type="Boolean" />
+            <Parameter Name="PuestosMesa" Mode="In" Type="String" />
+            <Parameter Name="IdMesero" Mode="In" Type="Int32" />
+            <Parameter Name="Plato" Mode="In" Type="String" />
+            <Parameter Name="ValorPlato" Mode="In" Type="Decimal" />
+            <Parameter Name="IdSupervisor" Mode="In" Type="Int32" />
+            <Parameter Name="NombresSupervisor" Mode="In" Type="String" />
+            <Parameter Name="ApellidosSupervisor" Mode="In" Type="String" />
+            <Parameter Name="EdadSupervisor" Mode="In" Type="String" />
+            <Parameter Name="AntiguedadSupervisor" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="AdicionarDatos" ReturnType="Collection(RestauranteModel.AdicionarDatos_Result)">
+            <Parameter Name="IdentificacionCliente" Mode="In" Type="Int32" />
+            <Parameter Name="NombresCliente" Mode="In" Type="String" />
+            <Parameter Name="ApellidosCliente" Mode="In" Type="String" />
+            <Parameter Name="DireccionCliente" Mode="In" Type="String" />
+            <Parameter Name="TelefonoCliente" Mode="In" Type="String" />
+            <Parameter Name="NroMesa" Mode="In" Type="Int32" />
+            <Parameter Name="NombreMesa" Mode="In" Type="String" />
+            <Parameter Name="ReservadaMesa" Mode="In" Type="Boolean" />
+            <Parameter Name="PuestosMesa" Mode="In" Type="String" />
+            <Parameter Name="IdMesero" Mode="In" Type="Int32" />
+            <Parameter Name="Plato" Mode="In" Type="String" />
+            <Parameter Name="ValorPlato" Mode="In" Type="Decimal" />
+            <Parameter Name="IdSupervisor" Mode="In" Type="Int32" />
+            <Parameter Name="NombresSupervisor" Mode="In" Type="String" />
+            <Parameter Name="ApellidosSupervisor" Mode="In" Type="String" />
+            <Parameter Name="EdadSupervisor" Mode="In" Type="String" />
+            <Parameter Name="AntiguedadSupervisor" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="VistaMeseros_Result">
+          <Property Type="Int32" Name="IdMesero" Nullable="false" />
+          <Property Type="String" Name="Nombres" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Apellidos" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Edad" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Antiguedad" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="ListaMeseros_Result">
+          <Property Type="String" Name="Nombres" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Apellidos" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="VistaMeserosId_Result">
+          <Property Type="Int32" Name="IdMesero" Nullable="false" />
+          <Property Type="String" Name="Nombres" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Apellidos" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="ListaMeserosId_Result">
+          <Property Type="Int32" Name="IdMesero" Nullable="false" />
+          <Property Type="String" Name="Nombres" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Apellidos" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="VistaMeserosIdCambiar_Result">
+          <Property Type="Int32" Name="IdMesero" Nullable="false" />
+          <Property Type="String" Name="Nombres" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Apellidos" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="VistaMeserosIdCambiarV2_Result">
+          <Property Type="Int32" Name="IdMesero" Nullable="false" />
+          <Property Type="String" Name="Nombres" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Apellidos" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="Escoger_Result">
+          <Property Type="Int32" Name="IdMesero" Nullable="false" />
+          <Property Type="String" Name="Nombres" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Apellidos" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="VistaMeserosIdCambiarV3_Result">
+          <Property Type="Int32" Name="IdMesero" Nullable="false" />
+          <Property Type="String" Name="Nombres" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Apellidos" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Edad" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Antiguedad" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="listaEscogeDatosMesero_Result">
+          <Property Type="Int32" Name="IdMesero" Nullable="false" />
+          <Property Type="String" Name="Nombres" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Apellidos" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Edad" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Antiguedad" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="InstertarPrueba_Result">
+          <Property Type="String" Name="Result" Nullable="false" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="AdicionarDatos_Result">
+          <Property Type="String" Name="Result" Nullable="false" MaxLength="1" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RestauranteModelStoreContainer" CdmEntityContainer="RestauranteEntities" >
+          <FunctionImportMapping FunctionImportName="VistaMeseros" FunctionName="RestauranteModel.Store.VistaMeseros">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RestauranteModel.VistaMeseros_Result">
+                <ScalarProperty Name="IdMesero" ColumnName="IdMesero" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Edad" ColumnName="Edad" />
+                <ScalarProperty Name="Antiguedad" ColumnName="Antiguedad" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ListaMeseros" FunctionName="RestauranteModel.Store.VistaMeseros">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RestauranteModel.ListaMeseros_Result">
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="VistaMeserosId" FunctionName="RestauranteModel.Store.VistaMeserosId">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RestauranteModel.VistaMeserosId_Result">
+                <ScalarProperty Name="IdMesero" ColumnName="IdMesero" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ListaMeserosId" FunctionName="RestauranteModel.Store.VistaMeserosId">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RestauranteModel.ListaMeserosId_Result">
+                <ScalarProperty Name="IdMesero" ColumnName="IdMesero" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="VistaMeserosIdCambiar" FunctionName="RestauranteModel.Store.VistaMeserosIdCambiar">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RestauranteModel.VistaMeserosIdCambiar_Result">
+                <ScalarProperty Name="IdMesero" ColumnName="IdMesero" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="EscogerMeseroxId" FunctionName="RestauranteModel.Store.VistaMeserosIdCambiar" />
+          <FunctionImportMapping FunctionImportName="VistaMeserosIdCambiarV2" FunctionName="RestauranteModel.Store.VistaMeserosIdCambiarV2">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RestauranteModel.VistaMeserosIdCambiarV2_Result">
+                <ScalarProperty Name="IdMesero" ColumnName="IdMesero" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Escoger" FunctionName="RestauranteModel.Store.VistaMeserosIdCambiarV2">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RestauranteModel.Escoger_Result">
+                <ScalarProperty Name="IdMesero" ColumnName="IdMesero" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="VistaMeserosIdCambiarV3" FunctionName="RestauranteModel.Store.VistaMeserosIdCambiarV3">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RestauranteModel.VistaMeserosIdCambiarV3_Result">
+                <ScalarProperty Name="IdMesero" ColumnName="IdMesero" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Edad" ColumnName="Edad" />
+                <ScalarProperty Name="Antiguedad" ColumnName="Antiguedad" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="listaEscogeDatosMesero" FunctionName="RestauranteModel.Store.VistaMeserosIdCambiarV3">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RestauranteModel.listaEscogeDatosMesero_Result">
+                <ScalarProperty Name="IdMesero" ColumnName="IdMesero" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Edad" ColumnName="Edad" />
+                <ScalarProperty Name="Antiguedad" ColumnName="Antiguedad" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="InsertarPruebaMesa" FunctionName="RestauranteModel.Store.InsertarPruebaMesa" />
+          <FunctionImportMapping FunctionImportName="InstertarPrueba" FunctionName="RestauranteModel.Store.InsertarPruebaMesa">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RestauranteModel.InstertarPrueba_Result">
+                <ScalarProperty Name="Result" ColumnName="Result" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="InsertarDatos" FunctionName="RestauranteModel.Store.InsertarDatos" />
+          <FunctionImportMapping FunctionImportName="AdicionarDatos" FunctionName="RestauranteModel.Store.InsertarDatos">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RestauranteModel.AdicionarDatos_Result">
+                <ScalarProperty Name="Result" ColumnName="Result" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
